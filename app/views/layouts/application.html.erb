@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Thefirstrails</title>
+    <title>App book</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,14 @@
   </head>
 
   <body>
+    <a href='/'>ホーム</a>
+    <% if user_signed_in? %>
+        <p>こんにちは、<%= link_to current_user.email, users_show_path %></p>
+    <% else %>
+        <a href='/users/sign_in'>サインイン</a>
+        <a href='/users/sign_up'>ユーザー登録</a>
+    <% end %>
+      
     <%= yield %>
   </body>
 </html>
