@@ -2,3 +2,7 @@
 <p>メールアドレス: <%= current_user.email %></p>
 <p>名前: <%= current_user.name %></p>
 <p>年齢: <%= current_user.age %></p>
+<% if current_user.avatar.attached? %>
+    <label>Avatar:</label>
+    <%= image_tag current_user.avatar, width: "200" %>
+<% end %>
